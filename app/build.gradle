@@ -64,9 +64,13 @@ dependencies {
     // Shimmer layout
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
+    // Kodein Dependency Injection
+    implementation 'org.kodein.di:kodein-di-generic-jvm:7.5.0'
+    implementation 'org.kodein.di:kodein-di-framework-android:7.5.0'
 
-//    // Library for api module
-//    implementation project(":api")
+
+    // Library for api module {By this we will get the access of api module classes, etc}
+    implementation project(":api")
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation "androidx.room:room-testing:$room_version"
