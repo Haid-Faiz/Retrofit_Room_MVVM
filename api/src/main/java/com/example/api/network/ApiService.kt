@@ -1,7 +1,7 @@
 package com.example.api.network
 
+import com.example.api.network.responses.SignInResponse
 import okhttp3.ResponseBody
-import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
@@ -9,17 +9,18 @@ import retrofit2.http.POST
 interface ApiService {
 
     @FormUrlEncoded
-    @POST("login")
-    fun userSignIn(
+    @POST("auth/login")
+    suspend fun signIn(
         @Field("email") email: String,
         @Field("password") password: String
-    ): Call<ResponseBody>
+    ): SignInResponse
 
 
     companion object {
-        operator fun invoke(): ApiService {
+        operator fun invoke(authToken: String? = null): ApiService {
             // if you are using operator keyword then function name should be invoke() only.
-            return ApiClient.getClient()!!.create(ApiService::class.java)
+//            return ApiClient.getClient()!!.create(ApiService::class.java)
+            return ApiClient.getApiService<ApiService>(ApiService::class.java, authToken)
         }
     }
     // Now with this operator invoke() function we can call this method like...

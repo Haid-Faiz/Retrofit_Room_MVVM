@@ -7,6 +7,11 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.lifecycle.asLiveData
+import com.example.quotes.data.UserPreferences
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,6 +19,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
+
+        val userPreferences = UserPreferences(this)
+        userPreferences.authToken.asLiveData().observe(this) {
+            Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+        }
 
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)

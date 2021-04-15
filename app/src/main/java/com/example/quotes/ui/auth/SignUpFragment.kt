@@ -8,22 +8,21 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
 import com.example.quotes.R
+import com.example.quotes.data.repos.AuthRepo
+import com.example.quotes.databinding.FragmentSignUpBinding
+import com.example.quotes.ui.base.BaseFragment
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
-class SignUpFragment : Fragment() {
+class SignUpFragment : BaseFragment<FragmentSignUpBinding, AuthViewModel, AuthRepo>() {
+    override fun getViewModel(): Class<AuthViewModel> = AuthViewModel::class.java
 
-    override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sign_up, container, false)
-    }
+    override fun getBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ) = FragmentSignUpBinding.inflate(inflater, container, false)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun getRepo(): AuthRepo = AuthRepo(apiService, userPreferences)
 
-    }
 }
