@@ -2,14 +2,14 @@ package com.example.quotes.ui.auth
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.api.network.Resource
 import com.example.api.network.responses.SignInResponse
 import com.example.quotes.data.repos.AuthRepo
+import com.example.quotes.ui.base.BaseViewModel
 import kotlinx.coroutines.launch
 
-class AuthViewModel(private val authRepo: AuthRepo) : ViewModel() {
+class AuthViewModel(private val authRepo: AuthRepo) : BaseViewModel(authRepo) {
 
     private var _liveSignInResponse: MutableLiveData<Resource<SignInResponse>> = MutableLiveData()
     var liveSignInResponse: LiveData<Resource<SignInResponse>> = _liveSignInResponse

@@ -4,13 +4,13 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.example.api.network.Resource
 import com.example.quotes.data.repos.AuthRepo
 import com.example.quotes.databinding.FragmentSignInBinding
 import com.example.quotes.ui.base.BaseFragment
-import kotlinx.coroutines.launch
+import com.example.quotes.utils.handleApiError
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -22,13 +22,11 @@ class SignInFragment : BaseFragment<FragmentSignInBinding, AuthViewModel, AuthRe
         super.onActivityCreated(savedInstanceState)
 
         _viewModel.liveSignInResponse.observe(viewLifecycleOwner) {
+            // From this line only ProgressBar visibility has been handeled
+            _binding.progressBar.isVisible = it is Resource.Loading
             when (it) {
                 is Resource.Success -> _viewModel.saveAuthToken(it.value.user.access_token!!) // TODO Goto Home Screen
-                is Resource.Failure -> Toast.makeText(
-                    requireContext(),
-                    "Login Failed",
-                    Toast.LENGTH_SHORT
-                ).show()
+                is Resource.Failure -> handleApiError(it)
             }
         }
 

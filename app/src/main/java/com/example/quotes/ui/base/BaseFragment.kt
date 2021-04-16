@@ -16,7 +16,7 @@ import com.example.quotes.data.repos.BaseRepo
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
-abstract class BaseFragment<B : ViewBinding, VM : ViewModel, R : BaseRepo> : Fragment() {
+abstract class BaseFragment<B : ViewBinding, VM : BaseViewModel, R : BaseRepo> : Fragment() {
 
     protected lateinit var userPreferences: UserPreferences
     protected lateinit var _binding: B
