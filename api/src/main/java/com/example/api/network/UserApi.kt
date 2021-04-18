@@ -11,4 +11,7 @@ interface UserApi {
     @GET("user")
     suspend fun getUser() : SignInResponse
 
+    @POST("logout")
+    suspend fun logout() : ResponseBody    // i don't want to know exact response so i am just
+                                            // wrapping it out in ResponseBody
 }

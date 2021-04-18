@@ -17,5 +17,4 @@ class AuthRepo(
     suspend fun saveAuthToken(authToken: String) {
         userPreferences.saveAuthToken(authToken)
     }
-
 }

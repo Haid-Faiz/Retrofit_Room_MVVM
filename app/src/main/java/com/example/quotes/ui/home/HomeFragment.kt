@@ -11,6 +11,7 @@ import com.example.api.network.responses.User
 import com.example.quotes.data.repos.UserRepo
 import com.example.quotes.databinding.FragmentHomeBinding
 import com.example.quotes.ui.base.BaseFragment
+import com.example.quotes.utils.handleApiError
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
@@ -32,6 +33,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel, UserRepo>(
                 }
                 is Resource.Failure -> {
                     // TODO handle failure
+                    handleApiError(it)
                 }
                 is Resource.Loading -> {
                     // TODO Show progress bar

@@ -4,6 +4,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.api.network.Resource
 import com.example.quotes.ui.auth.SignInFragment
+import com.example.quotes.ui.base.BaseFragment
 import com.google.android.material.snackbar.Snackbar
 
 private fun View.showSnackBar(
@@ -36,6 +37,7 @@ fun Fragment.handleApiError(
                 // If it comes from other than SignInFragment then access/auth token has been
                 // expired so we need to logout the user & user will have to sigIn again
                 // TODO Logout the user
+                (this as BaseFragment<*, *, *>).logout()
             }
         }
         else -> {

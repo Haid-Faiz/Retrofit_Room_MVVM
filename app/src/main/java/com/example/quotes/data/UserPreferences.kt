@@ -11,9 +11,10 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 
+private val Context.dataStore: DataStore<Preferences> by preferencesDataStore("app_preferences")
+
 class UserPreferences(context: Context) {
 
-    private val Context.dataStore: DataStore<Preferences> by preferencesDataStore("name")
     private val _dataStore: DataStore<Preferences> = context.dataStore
 
     val authToken: Flow<String?>
@@ -24,6 +25,12 @@ class UserPreferences(context: Context) {
     suspend fun saveAuthToken(authToken: String) {
         _dataStore.edit {
             it[KEY_AUTH] = authToken
+        }
+    }
+
+    suspend fun clearAuthToken() {
+        _dataStore.edit {
+            it.clear()
         }
     }
 

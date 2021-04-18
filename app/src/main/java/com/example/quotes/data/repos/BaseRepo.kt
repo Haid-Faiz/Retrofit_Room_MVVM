@@ -1,6 +1,7 @@
 package com.example.quotes.data.repos
 
 import com.example.api.network.Resource
+import com.example.api.network.UserApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
@@ -17,6 +18,7 @@ abstract class BaseRepo {
             } catch (throwable: Throwable) {
 
                 when (throwable) {
+                    // in case of HTTP exception we will not consider as network error
                     is HttpException -> Resource.Failure(
                         false,
                         throwable.code(),
@@ -28,4 +30,6 @@ abstract class BaseRepo {
             }
         }
     }
+
+    suspend fun logout(userApi: UserApi) = safeApiCall { userApi.logout() }
 }

@@ -7,9 +7,10 @@ import androidx.lifecycle.viewModelScope
 import com.example.api.network.Resource
 import com.example.api.network.responses.SignInResponse
 import com.example.quotes.data.repos.UserRepo
+import com.example.quotes.ui.base.BaseViewModel
 import kotlinx.coroutines.launch
 
-class HomeViewModel(private val userRepo: UserRepo) : ViewModel() {
+class HomeViewModel(private val userRepo: UserRepo) : BaseViewModel(userRepo) {
 
     private val _user: MutableLiveData<Resource<SignInResponse>> = MutableLiveData()
     val user: LiveData<Resource<SignInResponse>>

@@ -25,7 +25,7 @@ object ApiClient {
                     }
                 ).build()  // this will return OkHttp client
             )
-            .addConverterFactory(MoshiConverterFactory.create())
+            .addConverterFactory(MoshiConverterFactory.create().asLenient())
             .build()
 
         return retrofit

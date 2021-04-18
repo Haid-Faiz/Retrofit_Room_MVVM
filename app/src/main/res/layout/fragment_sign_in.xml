@@ -5,142 +5,151 @@
     tools:context=".ui.auth.SignInFragment">
 
     <data>
+
         <variable
             name="authViewModel"
             type="com.example.quotes.ui.auth.AuthViewModel" />
     </data>
 
-
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/root_layout"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#E2E2E2">
+        android:layout_height="match_parent">
 
-
-        <RelativeLayout
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/root_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp">
+            android:background="#E2E2E2">
 
-            <ImageView
-                android:id="@+id/image_view_logo"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="75dp"
-                android:background="@drawable/ic_app_logo" />
 
-            <LinearLayout
-                android:id="@+id/linearLayout1"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/image_view_logo"
-                android:orientation="vertical">
+                android:padding="16dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="architect your app with"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="#465A61"
-                    app:fontFamily="cursive" />
+                <ImageView
+                    android:id="@+id/image_view_logo"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="62dp"
+                    android:background="@drawable/ic_app_logo" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="MVVM"
-                    android:textAllCaps="false"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-                    android:textColor="#969EEE"
-                    android:textStyle="bold"
-                    android:typeface="monospace"
-                    app:fontFamily="casual" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linearLayout2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/linearLayout1"
-                android:background="#ffffff"
-                android:orientation="vertical"
-                android:padding="18dp">
-
-                <EditText
-                    android:text="@={authViewModel.email}"
-                    android:id="@+id/edit_text_email"
+                <LinearLayout
+                    android:id="@+id/linearLayout1"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="12dp"
-                    android:background="@drawable/edit_text_round_gray_background"
-                    android:drawableLeft="@drawable/ic_email"
-                    android:drawablePadding="16dp"
-                    android:hint="faizan@gmail.com"
-                    android:inputType="textEmailAddress"
-                    android:padding="12dp" />
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/image_view_logo"
+                    android:orientation="vertical">
 
-                <EditText
-                    android:text="@={authViewModel.password}"
-                    android:id="@+id/edit_text_password"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="architect your app with"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:textColor="#465A61"
+                        app:fontFamily="cursive" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="MVVM"
+                        android:textAllCaps="false"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                        android:textColor="#969EEE"
+                        android:textStyle="bold"
+                        android:typeface="monospace"
+                        app:fontFamily="casual" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout2"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="12dp"
-                    android:background="@drawable/edit_text_round_gray_background"
-                    android:drawableLeft="@drawable/ic_lock"
-                    android:drawablePadding="16dp"
-                    android:hint="password"
-                    android:inputType="textPassword"
-                    android:padding="12dp" />
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/linearLayout1"
+                    android:background="#ffffff"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <EditText
+                        android:id="@+id/edit_text_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="12dp"
+                        android:background="@drawable/edit_text_round_gray_background"
+                        android:drawableLeft="@drawable/ic_email"
+                        android:drawablePadding="16dp"
+                        android:hint="faizan@gmail.com"
+                        android:inputType="textEmailAddress"
+                        android:padding="12dp" />
+                    <!--                android:text="@={authViewModel.email}"-->
+
+                    <EditText
+                        android:id="@+id/edit_text_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="12dp"
+                        android:background="@drawable/edit_text_round_gray_background"
+                        android:drawableLeft="@drawable/ic_lock"
+                        android:drawablePadding="16dp"
+                        android:hint="password"
+                        android:inputType="textPassword"
+                        android:padding="12dp" />
+                    <!--                android:text="@={authViewModel.password}"-->
+
+                    <TextView
+                        android:id="@+id/text_view_forget_password"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:text="Forget Password?"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                    <Button
+                        android:id="@+id/button_sign_in"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Sign In"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorPrimaryDark" />
+                    <!--                android:onClick="@{() -> authViewModel.signIn()}"-->
+                    <!--                android:onClick="@{ () -> authViewModel::signIn}"-->
+
+                </LinearLayout>
 
                 <TextView
-                    android:id="@+id/text_view_forget_password"
+                    android:id="@+id/text_view_sign_up"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:text="Forget Password?"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/colorPrimaryDark" />
+                    android:layout_below="@id/linearLayout2"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center"
+                    android:text="Don't have an account?\nSign Up Here"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="12dp" />
 
-                <Button
-                    android:id="@+id/button_sign_in"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:onClick="@{ () -> authViewModel::signIn}"
-                    android:layout_gravity="center_horizontal"
-                    android:text="Sign In"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textAllCaps="false" />
-<!--                android:onClick="@{() -> authViewModel.signIn()}"-->
+            </RelativeLayout>
 
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/text_view_sign_up"
+            <ProgressBar
+                android:id="@+id/progress_bar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/linearLayout2"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="12dp"
-                android:text="Don't have an account?\nSign Up Here"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-                android:textColor="@color/colorPrimary" />
-
-        </RelativeLayout>
-
-        <ProgressBar
-            android:id="@+id/progress_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|center_vertical"
-            android:visibility="invisible" />
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:visibility="invisible" />
 
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+    </ScrollView>
 
 
 </layout>

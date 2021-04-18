@@ -23,4 +23,6 @@ dependencies {
     kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
     // Kotlin Coroutine library (Core -> means not specific to android)
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version"
+    // Unit Testing
+    testImplementation 'junit:junit:4.13.2'
 }

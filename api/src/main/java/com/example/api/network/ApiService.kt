@@ -15,6 +15,13 @@ interface ApiService {
         @Field("password") password: String
     ): SignInResponse
 
+    @FormUrlEncoded
+    @POST("auth/signup")
+    suspend fun signUp(
+        @Field("email") email: String,
+        @Field("password") password: String
+    ): SignInResponse
+
 
     companion object {
         operator fun invoke(authToken: String? = null): ApiService {
