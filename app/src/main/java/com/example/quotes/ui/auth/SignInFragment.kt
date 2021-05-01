@@ -22,9 +22,7 @@ class SignInFragment : BaseFragment<FragmentSignInBinding, AuthViewModel, AuthRe
             _binding.progressBar.isVisible = it is Resource.Loading
             when (it) {
                 is Resource.Success -> _viewModel.saveAuthToken(it.value.user.access_token!!) // TODO Goto Home Screen
-                is Resource.Failure -> handleApiError(it) {
-                    signIn()
-                }
+                is Resource.Failure -> handleApiError(it) { signIn() }
             }
         }
 

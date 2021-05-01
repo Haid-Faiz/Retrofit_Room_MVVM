@@ -18,7 +18,6 @@ abstract class BaseRepo {
             } catch (throwable: Throwable) {
 
                 when (throwable) {
-                    // in case of HTTP exception we will not consider as network error
                     is HttpException -> Resource.Failure(
                         false,
                         throwable.code(),
